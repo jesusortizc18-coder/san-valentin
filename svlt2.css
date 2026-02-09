@@ -1,0 +1,113 @@
+:root {
+    --pink: #ff4d6d;
+    --dark-pink: #c9184a;
+    --trunk: #5e3023;
+    --leaf-green: #76b852;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Centra el contenedor en la pantalla */
+    align-items: center;     /* Centra verticalmente */
+    background-color: #fff0f3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+/* --- EL CONTENEDOR (FUERZA EL ORDEN VERTICAL) --- */
+.container {
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column; /* Pone Título -> Árbol -> Cuadro uno debajo del otro */
+    align-items: center;    /* Centra todo horizontalmente */
+    text-align: center;     /* Centra los textos de los títulos */
+}
+
+.title { 
+    color: var(--dark-pink); 
+    font-size: 1.4rem; 
+    margin: 0 0 5px 0; 
+}
+
+.subtitle { 
+    color: #555; 
+    font-size: 0.85rem; 
+    margin: 0 0 20px 0; 
+}
+
+/* --- EL ÁRBOL --- */
+.tree-container {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 30px; /* Espacio antes del cuadro blanco */
+}
+
+.tree-top {
+    position: absolute;
+    width: 130px;
+    height: 110px;
+    background: radial-gradient(circle at 30% 30%, #a8e063, #56ab2f);
+    border-radius: 50%;
+    bottom: 70px;
+    z-index: 1;
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
+}
+
+.tree {
+    width: 25px;
+    height: 90px;
+    background-color: var(--trunk);
+    border-radius: 0 0 5px 5px;
+    z-index: 1;
+}
+
+/* --- CORAZONES (POR DELANTE) --- */
+.heart {
+    position: absolute;
+    color: var(--pink);
+    font-size: 1.2rem;
+    z-index: 999 !important; /* Salen por delante de la copa verde */
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(350px) rotate(360deg); opacity: 0; }
+}
+
+/* --- EL CUADRO BLANCO (TEXTO CENTRADO) --- */
+.timer {
+    padding: 20px 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el texto dentro del cuadro blanco */
+    text-align: center;  /* Asegura el centrado del texto */
+}
+
+#clock {
+    font-weight: bold;
+    color: var(--dark-pink);
+    font-size: 1.15rem;
+    margin: 10px 0;
+}
+
+.love-text {
+    font-style: italic;
+    color: var(--pink);
+    font-size: 0.85rem;
+}
